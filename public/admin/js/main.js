@@ -24,4 +24,18 @@ leftSide.innerHTML = `
             <li> <a href="addstation.html"> Add Station</a></li>
             <li> <a href="liststation.html"> Station List</a></li>
           </ul>
+        </div>
+        <div class="samesidebar">
+          <h2> Trip Option</h2>
+          <ul>
+            <li> <a href="addtrip.html"> Add Trip</a></li>
+            <li> <a href="listtrip.html"> Trip List</a></li>
+          </ul>
+        </div>
+        <div class="samesidebar">
+          <h2> Booking Option</h2>
+          <ul>
+            <li> <a href="listbooking.html">Booking List</a></li>
+            
+          </ul>
         </div>`;

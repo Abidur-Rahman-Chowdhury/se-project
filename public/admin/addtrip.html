@@ -23,28 +23,44 @@
       <article class="maincontent clear">
         <div class="content clear">
           <div class="addarticle clear">
-            <h2>Add Bus</h2>
+            <h2>Add Trip</h2>
             <form action="" method="" enctype="multipart/form-data">
               <table>
                 <tr>
-                  <td>Coach No</td>
-                  <td><input type="text" name="coach_no" placeholder="Please Enter a Coach Number"></td>
-                </tr>
-
-                <tr>
-                  <td>Coach Type</td>
+                  <td>From Station</td>
                   <td>
-                    <select name="coach_type" id="">
-                      <option value="ac">AC</option>
-                      <option value="non_ac">Non AC</option>
+                    <select name="from_station_id" id="">
+                      <option value="chittagong">Chittagong</option>
+                      <option value="dhaka">Dhaka</option>
+                      <option value="kumilla">Kumilla</option>
 
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>To Station</td>
+                  <td>
+                    <select name="to_station_id" id="">
+                      <option value="chittagong">Chittagong</option>
+                      <option value="dhaka">Dhaka</option>
+                      <option value="kumilla">Kumilla</option>
                     </select>
                   </td>
                 </tr>
 
                 <tr>
+                  <td>Deperture Time</td>
+                  <td><input type="text" name="deperture_time" placeholder="Please Enter Deperture Time"></td>
+
+                </tr>
+                <tr>
+                  <td>Fare</td>
+                  <td><input type="text" name="fare" placeholder="Please Enter Fare"></td>
+
+                </tr>
+                <tr>
                   <td></td>
-                  <td><button type="button" onclick="addItem(coach_no, coach_type)">Add Bus</button></td>
+                  <td><button type="button" onclick="addItem(item)">Add Trip</button></td>
                 </tr>
               </table>
             </form>
