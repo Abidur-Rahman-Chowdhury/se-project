@@ -1,24 +1,25 @@
 module.exports = function (zapp, mongoose) {
   //create  a schema - this is like a blueprint
-  var busSchema = new mongoose.Schema({
-    coach_no: String,
-    coach_type: String,
+  var tripSchema = new mongoose.Schema({
+    from_station_id: String,
+    to_station_id: String,
+    deperture_time: String,
+    fare: String,
   });
 
-  var Bus = mongoose.model("Bus", busSchema);
-  zapp.get("/bus", function (req, res) {
+  var Trip = mongoose.model("Trip", tripSchema);
+  zapp.get("/trip", function (req, res) {
     //get data from mongodb and pass it to view
-    Bus.find({}, function (err, data) {
+    Trip.find({}, function (err, data) {
       if (err) throw err;
-      console.log(data);
       res.json(data);
     });
   });
 
-  zapp.post("/bus", function (req, res) {
+  zapp.post("/trip", function (req, res) {
     // get data from the view and add it to mongodb
-    console.log(req.body);
-    var newBus = Bus(req.body).save(function (err, data) {
+    console.log(req);
+    var newTrip = Trip(req.body).save(function (err, data) {
       if (err) throw err;
       res.json(data);
     });

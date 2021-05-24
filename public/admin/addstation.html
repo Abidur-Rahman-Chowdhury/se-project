@@ -32,15 +32,15 @@
                 </tr>
                 <tr>
                   <td>Description</td>
-                  <td><textarea name="editor1"></textarea>
-                    <script>
+                  <td><textarea name="desc"></textarea>
+                    <!-- <script>
                       CKEDITOR.replace('editor1');
-                    </script>
+                    </script> -->
                   </td>
                 </tr>
 
                 <td></td>
-                <td><input type="submit" name="submit" value="Add"></td>
+                <td><button type="button" onclick="addStation(station_name, desc)">Add Station</button></td>
                 </tr>
               </table>
             </form>
@@ -52,6 +52,7 @@
       <h3>&copy; Copyright Exclusive Travels 2021.</h3>
     </footer>
   </div>
+  <script src="js/station.js"></script>
   <script src="js/main.js"></script>
 
 

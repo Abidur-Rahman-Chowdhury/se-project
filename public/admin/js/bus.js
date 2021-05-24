@@ -18,3 +18,10 @@ function addItem(coach_no, coach_type) {
     // location.reload();
   });
 }
+function getAllbus() {
+  fetch("/bus").then((response) => {
+    console.log(response);
+    // location.reload();
+  });
+}
+getAllbus();
