@@ -17,9 +17,28 @@ function addTrip(from_station_id, to_station_id, deperture_time, fare) {
   });
 }
 function getAlltrip() {
-  fetch("/trip").then((response) => {
-    console.log(response);
-    // location.reload();
-  });
+  fetch("/trip")
+    .then((response) => {
+      return response.json();
+      // location.reload();
+    })
+    .then((response) => {
+      console.log(response);
+      // location.reload();
+      let table = document.getElementById("tripList");
+      for (let i = 0; i < response.length; i++) {
+        let tr = document.createElement("tr");
+        tr.innerHTML = ` <tr>
+                <td>${i + 1}</td>
+                <td>${response[i].from_station_id}</td>
+                <td>${response[i].to_station_id}</td>
+                <td>${response[i].deperture_time}</td>
+                <td>${response[i].fare}</td>
+                <td><a href="editarticle.html">Edit</a> || <a href="#">Delete</a></td>
+              </tr>`;
+
+        table.appendChild(tr);
+      }
+    });
 }
 getAlltrip();

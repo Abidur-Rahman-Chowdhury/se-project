@@ -12,7 +12,7 @@ module.exports = function (zapp, mongoose) {
     //get data from mongodb and pass it to view
     Trip.find({}, function (err, data) {
       if (err) throw err;
-      res.json(data);
+      res.send(data);
     });
   });
 

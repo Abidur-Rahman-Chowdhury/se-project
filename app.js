@@ -1,3 +1,4 @@
+const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const busContoller = require("./controllers/busController");
@@ -15,6 +16,7 @@ const port = 3000;
 // app.get("/", (req, res) => {
 //   res.send("Hello World!");
 // });
+app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

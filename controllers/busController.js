@@ -11,7 +11,7 @@ module.exports = function (zapp, mongoose) {
     Bus.find({}, function (err, data) {
       if (err) throw err;
       console.log(data);
-      res.json(data);
+      res.send(data);
     });
   });
 
