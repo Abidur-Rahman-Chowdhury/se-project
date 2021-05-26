@@ -41,4 +41,23 @@ function getAlltrip() {
       }
     });
 }
-getAlltrip();
+
+function dynamicStation() {
+  fetch("/station")
+    .then((response) => {
+      return response.json();
+      // location.reload();
+    })
+    .then((response) => {
+      console.log(response);
+      // location.reload();
+      let station = document.getElementById("fromStation");
+      for (let i = 0; i < response.length; i++) {
+        station.innerHTML += `<option value="${response[i]._id}">${response[i].station_name}</option> `;
+      }
+      let station2 = document.getElementById("toStation");
+      for (let j = 0; j < response.length; j++) {
+        station2.innerHTML += `<option value="${response[j]._id}">${response[j].station_name}</option> `;
+      }
+    });
+}

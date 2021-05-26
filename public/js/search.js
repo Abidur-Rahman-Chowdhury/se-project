@@ -41,4 +41,25 @@ function viewTrip() {
       }
     });
 }
-viewTrip();
+
+function dynamicStation() {
+  fetch("/station")
+    .then((response) => {
+      return response.json();
+      // location.reload();
+    })
+    .then((response) => {
+      console.log(response);
+      // location.reload();
+      let fromStation = document.getElementById("showFromStation");
+      for (let i = 0; i < response.length; i++) {
+        fromStation.innerHTML += `<option value="${response[i].station_name}">${response[i].station_name}</option> `;
+      }
+      let toStation = document.getElementById("showToStation");
+      for (let j = 0; j < response.length; j++) {
+        toStation.innerHTML += `<option value="${response[j].station_name}">${response[j].station_name}</option> `;
+      }
+    });
+}
+
+function searchTrips() {}

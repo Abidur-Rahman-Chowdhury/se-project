@@ -35,37 +35,32 @@
                     <h3 class="form-heading">Buy Ticket</h3>
                 </div>
                 <form action="#" class="form">
-                    <select class="select" required>
+                    <select class="select" required id="showFromStation">
                         <option value="">From</option>
-                        <option value="DHK">Dhaka</option>
-                        <option value="KHL">Khulna</option>
-                        <option value="CTG">Chittagong</option>
-
                     </select>
-                    <select class="select" required>
+                    <select class="select" required id="showToStation">
                         <option value="">To</option>
-                        <option value="DHK">Dhaka</option>
-                        <option value="KHL">Khulna</option>
-                        <option value="CTG">Chittagong</option>
-
                     </select> <br>
                     <input type="date" required>
 
                     <select class="select">
-                        <option value="">Coach Type</option>
+                        <option>Coach Type</option>
                         <option value="">AC</option>
                         <option value="">Non AC</option>
-
                     </select>
-                    <a href="search.html" class="search-btn">
+                    <a onclick="searchTrips()" class="search-btn">
                         <ion-icon name="search-outline"></ion-icon>
                     </a>
                 </form>
             </div>
         </section>
-
+        <script src="js/search.js"></script>
 
         <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+        <!-- <script src="admin/js/trip.js"></script> -->
+        <script>
+            dynamicStation();
+        </script>
 
 </body>
 
