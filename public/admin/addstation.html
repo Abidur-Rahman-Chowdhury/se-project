@@ -14,25 +14,23 @@
 
 <body>
   <div class="template">
-    <header class="headeroption clear" id="headTemplate">
-
-    </header>
+    <header class="headeroption clear" id="headTemplate"></header>
     <section class="contentsection clear">
-      <aside class="leftsidebar clear" id="leftSide">
-      </aside>
+      <aside class="leftsidebar clear" id="leftSide"></aside>
       <article class="maincontent clear">
         <div class="content clear">
           <div class="addarticle clear">
-            <h2>Add Station</h2>
+            <h2 id="pageTitle">Add Station</h2>
             <form action="" method="" enctype="multipart/form-data">
               <table>
                 <tr>
                   <td>Station Name</td>
-                  <td><input type="text" name="station_name" placeholder="Please Enter Station Name"></td>
+                  <td><input type="text" id="station_name" name="station_name" placeholder="Please Enter Station Name">
+                  </td>
                 </tr>
                 <tr>
                   <td>Description</td>
-                  <td><textarea name="desc"></textarea>
+                  <td><textarea id="desc" name="desc"></textarea>
                     <!-- <script>
                       CKEDITOR.replace('editor1');
                     </script> -->
@@ -40,7 +38,9 @@
                 </tr>
 
                 <td></td>
-                <td><button type="button" onclick="addStation(station_name, desc)">Add Station</button></td>
+                <td id="buttonTitle"><button type="button" id="buttonTitle" onclick="addItem(station_name, desc)">Add
+                    Station</button>
+                </td>
                 </tr>
               </table>
             </form>
@@ -54,6 +54,22 @@
   </div>
   <script src="js/station.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    let query = window.location.search.substring(1);
+    let stationId = query.split('=')[1];
+    if (stationId) {
+
+      getStation(stationId);
+
+      let editTitle = document.getElementById("pageTitle");
+      editTitle.innerText = 'Edit Station';
+
+      let editButton = document.getElementById("buttonTitle");
+      editButton.innerHTML = `<button type="button" id="buttonTitle" onclick="editItem(station_name, desc, '${stationId}')">Edit Station</button>`;
+
+    }
+  </script>
+
 
 
 

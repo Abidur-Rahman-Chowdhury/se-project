@@ -23,7 +23,7 @@
       <article class="maincontent clear">
         <div class="content clear">
           <div class="addarticle clear">
-            <h2>Add Trip</h2>
+            <h2 id="pageTitle">Add Trip</h2>
             <form action="" method="" enctype="multipart/form-data">
               <table>
                 <tr>
@@ -36,26 +36,24 @@
                 </tr>
                 <tr>
                   <td>To Station</td>
-                  <td>
-                    <select name="to_station_id" id="toStation">
-
-                    </select>
-                  </td>
+                  <td><select name="to_station_id" id="toStation"></select></td>
                 </tr>
 
                 <tr>
                   <td>Deperture Time</td>
-                  <td><input type="time" name="deperture_time" placeholder="Please Enter Deperture Time"></td>
+                  <td><input type="time" id="deperture_time" name="deperture_time"
+                      placeholder="Please Enter Deperture Time"></td>
 
                 </tr>
                 <tr>
                   <td>Fare</td>
-                  <td><input type="number" name="fare" placeholder="Please Enter Fare"></td>
+                  <td><input type="number" id="fare" name="fare" placeholder="Please Enter Fare"></td>
 
                 </tr>
                 <tr>
                   <td></td>
-                  <td><button type="button" onclick="addTrip(from_station_id, to_station_id, deperture_time,fare)">Add
+                  <td id="buttonTitle"><button type="button" id="buttonTitle"
+                      onclick="addTrip(from_station_id, to_station_id, deperture_time,fare)">Add
                       Trip</button></td>
                 </tr>
               </table>
@@ -72,6 +70,19 @@
   <script src="js/main.js"></script>
   <script>
     dynamicStation();
+    let query = window.location.search.substring(1);
+    let tripId = query.split('=')[1];
+    if (tripId) {
+
+      getTrip(tripId);
+
+      let editTitle = document.getElementById("pageTitle");
+      editTitle.innerText = 'Edit Trip';
+
+      let editButton = document.getElementById("buttonTitle");
+      editButton.innerHTML = `<button type="button" id="buttonTitle" onclick="editItem(from_station_id, to_station_id,deperture_time,fare,'${tripId}')">Edit Trip</button>`;
+
+    }
   </script>
 
 </body>

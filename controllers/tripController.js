@@ -21,18 +21,40 @@ module.exports = function (zapp, mongoose) {
     console.log(req);
     var newTrip = Trip(req.body).save(function (err, data) {
       if (err) throw err;
-      res.json(data);
+      // res.json(data);
+      res.redirect(`admin/listtrip.html`);
     });
   });
 
-  //   zapp.delete("/bus/:item", function (req, res) {
-  //     // delete requested item from mongodb
-  //     Bus.find({ item: req.params.item.replace(/\-/g, " ") }).remove(function (
-  //       err,
-  //       data
-  //     ) {
-  //       if (err) throw err;
-  //       res.json(data);
-  //     });
-  //   });
+  //delete
+  zapp.delete("/trip/:item", function (req, res) {
+    // delete requested item from mongodb
+    Trip.find({ _id: req.params.item }).remove(function (err, data) {
+      if (err) throw err;
+      res.json(data);
+    });
+  });
+  //find
+  zapp.get("/trip/:item", function (req, res) {
+    //get data from mongodb and pass it to view
+    Trip.find({ _id: req.params.item }, function (err, data) {
+      if (err) throw err;
+      console.log(data);
+      res.send(data);
+    });
+  });
+  //update
+  zapp.post("/trip/:item", function (req, res) {
+    // get data from the view and add it to mongodb
+    console.log(req.body);
+    Trip.update(
+      { _id: req.params.item },
+      req.body,
+      { multi: false },
+      function (err, data) {
+        if (err) throw err;
+        res.redirect(`../admin/listtrip.html`);
+      }
+    );
+  });
 };
