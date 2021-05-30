@@ -62,28 +62,12 @@
             </div>
         </section>
         <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+        <script src="js/search.js"></script>
+        <!-- <script src="../public/admin/js/station.js"></script> -->
 
         <script>
-            function dynamicStation() {
-                fetch("/station")
-                    .then((response) => {
-                        return response.json();
-                        // location.reload();
-                    })
-                    .then((response) => {
-                        console.log(response);
-                        // location.reload();
-                        let fromStation = document.getElementById("showFromStation");
-                        for (let i = 0; i < response.length; i++) {
-                            fromStation.innerHTML += `<option value="${response[i].station_name}">${response[i].station_name}</option> `;
-                        }
-                        let toStation = document.getElementById("showToStation");
-                        for (let j = 0; j < response.length; j++) {
-                            toStation.innerHTML += `<option value="${response[j].station_name}">${response[j].station_name}</option> `;
-                        }
-                    });
-            }
             dynamicStation();
+            viewTrip()
         </script>
 </body>
 

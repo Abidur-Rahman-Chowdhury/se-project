@@ -18,16 +18,19 @@ function viewTrip() {
         today.getDate();
 
       for (let i = 0; i < response.length; i++) {
+        response[i].from_station_name = getStation(response[i].from_station_id);
+        response[i].to_station_name = getStation(response[i].to_station_id);
         viewTrip.innerHTML += `<br>
                 <div class="view-card">
-                    <div class="part-1">${response[i].from_station_id}-To-${response[i].to_station_id}</div>
+                    <div class="part-1">${response[i].from_station_name}-To-${response[i].to_station_name}</div>
                     <div class="part-2">Departure <br>
                         ${response[i].deperture_time}<br>
                         ${date}</div>
                     <div class="part-3">Boarding <br>
-                        ${response[i].from_station_id}<br> <br>
+                        ${response[i].from_station_name}
+                        <br> <br>
                         Destination <br>
-                        <span class="bold">${response[i].to_station_id}</span>
+                        <span class="bold">${response[i].to_station_name}</span>
                     </div>
                     <div class="part-4">Business <br>
                         BDT <br> <br>
@@ -41,7 +44,7 @@ function viewTrip() {
       }
     });
 }
-
+var stationList;
 function dynamicStation() {
   fetch("/station")
     .then((response) => {
@@ -49,6 +52,8 @@ function dynamicStation() {
       // location.reload();
     })
     .then((response) => {
+      stationList = response;
+
       console.log(response);
       // location.reload();
       let fromStation = document.getElementById("showFromStation");
@@ -60,6 +65,10 @@ function dynamicStation() {
         toStation.innerHTML += `<option value="${response[j].station_name}">${response[j].station_name}</option> `;
       }
     });
+}
+function getStation(stationId) {
+  let st = stationList.find((item) => item._id === stationId);
+  return st.station_name;
 }
 
 function searchTrips() {}
