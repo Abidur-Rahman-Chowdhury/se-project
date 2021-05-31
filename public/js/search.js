@@ -1,5 +1,12 @@
-function viewTrip() {
-  fetch("/trip")
+function viewTrip(searchItems) {
+  fetch("/search-trip", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(searchItems),
+  })
     .then((response) => {
       return response.json();
       // location.reload();
@@ -58,11 +65,11 @@ function dynamicStation() {
       // location.reload();
       let fromStation = document.getElementById("showFromStation");
       for (let i = 0; i < response.length; i++) {
-        fromStation.innerHTML += `<option value="${response[i].station_name}">${response[i].station_name}</option> `;
+        fromStation.innerHTML += `<option value="${response[i]._id}">${response[i].station_name}</option> `;
       }
       let toStation = document.getElementById("showToStation");
       for (let j = 0; j < response.length; j++) {
-        toStation.innerHTML += `<option value="${response[j].station_name}">${response[j].station_name}</option> `;
+        toStation.innerHTML += `<option value="${response[j]._id}">${response[j].station_name}</option> `;
       }
     });
 }
@@ -71,4 +78,10 @@ function getStation(stationId) {
   return st.station_name;
 }
 
-function searchTrips() {}
+function searchTrips(fromStation, toStation) {
+  let searchItems = {
+    fromStationId: fromStation.value,
+    toStationId: toStation.value,
+  };
+  viewTrip(searchItems);
+}

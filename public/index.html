@@ -34,22 +34,22 @@
                 <h3 class="form-heading">Buy Ticket</h3>
             </div>
             <form action="#" class="form">
-                <select class="select" required id="showFromStation">
+                <select class="select" name="fromStation" required id="showFromStation">
                     <option value="">From</option>
                 </select>
-                <select class="select" required id="showToStation">
+                <select class="select" name="toStation" required id="showToStation">
                     <option value="">To</option>
                 </select> <br>
-                <input type="date" required>
+                <input type="date">
 
                 <select class="select">
                     <option>Coach Type</option>
                     <option value="">AC</option>
                     <option value="">Non AC</option>
                 </select>
-                <a onclick="searchTrips()" class="search-btn">
+                <button type="button" onclick="searchTrips(fromStation,toStation)" class="search-btn">
                     <ion-icon name="search-outline"></ion-icon>
-                </a>
+                </button>
             </form>
         </div>
     </section>
@@ -145,7 +145,6 @@
 
     <script>
         dynamicStation();
-        viewTrip()
     </script>
 
 </body>

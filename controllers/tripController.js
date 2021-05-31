@@ -26,6 +26,21 @@ module.exports = function (zapp, mongoose) {
     });
   });
 
+  zapp.post("/search-trip", function (req, res) {
+    // get data from the view and add it to mongodb
+    // console.log(req.body);
+    Trip.find(
+      {
+        from_station_id: req.body.fromStationId,
+        to_station_id: req.body.toStationId,
+      },
+      function (err, data) {
+        if (err) throw err;
+        res.send(data);
+      }
+    );
+  });
+
   //delete
   zapp.delete("/trip/:item", function (req, res) {
     // delete requested item from mongodb
