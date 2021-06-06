@@ -219,17 +219,24 @@ html {
   margin-left: 0.2rem;
 }
 .select {
-  flex-basis: 20%;
+  flex-basis: 22%;
   margin-right: 0.3rem;
+  padding: 15px;
+}
+.date-input {
+  flex-basis: 20%;
+  padding: 15px;
 }
 .form {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   border: 1px solid #e74c3c;
   padding: 2rem;
 }
 .search-btn {
   background-color: #c0392b;
+  flex-basis: 8%;
   color: #ffffff;
   font-size: 2rem;
   padding: 1.5rem 2.5rem;

@@ -38,6 +38,21 @@
                   <td>To Station</td>
                   <td><select name="to_station_id" id="toStation"></select></td>
                 </tr>
+                <tr>
+                  <td>Coach No</td>
+                  <td><input type="text" id="coach_no" name="coach_no" placeholder="Please Enter a Coach Number"></td>
+                </tr>
+
+                <tr>
+                  <td>Coach Type</td>
+                  <td>
+                    <select name="coach_type" id="coach_type">
+                      <option value="AC">AC</option>
+                      <option value="Non AC">Non AC</option>
+
+                    </select>
+                  </td>
+                </tr>
 
                 <tr>
                   <td>Deperture Time</td>
@@ -53,7 +68,7 @@
                 <tr>
                   <td></td>
                   <td id="buttonTitle"><button type="button" id="buttonTitle"
-                      onclick="addTrip(from_station_id, to_station_id, deperture_time,fare)">Add
+                      onclick="addTrip(from_station_id, to_station_id, coach_no,coach_type, deperture_time,fare)">Add
                       Trip</button></td>
                 </tr>
               </table>

@@ -1,7 +1,16 @@
-function addTrip(from_station_id, to_station_id, deperture_time, fare) {
+function addTrip(
+  from_station_id,
+  to_station_id,
+  coach_no,
+  coach_type,
+  deperture_time,
+  fare
+) {
   var trip = {
     from_station_id: from_station_id.value,
     to_station_id: to_station_id.value,
+    coach_no: coach_no.value,
+    coach_type: coach_type.value,
     deperture_time: deperture_time.value,
     fare: fare.value,
   };
@@ -21,12 +30,16 @@ function editItem(
   from_station_id,
   to_station_id,
   deperture_time,
+  coach_no,
+  coach_type,
   fare,
   tripId
 ) {
   var trip = {
     from_station_id: from_station_id.value,
     to_station_id: to_station_id.value,
+    coach_no: coach_no.value,
+    coach_type: coach_type.value,
     deperture_time: deperture_time.value,
     fare: fare.value,
   };
@@ -59,6 +72,8 @@ function getAlltrip() {
                 <td>${i + 1}</td>
                 <td>${response[i].from_station_name}</td>
                 <td>${response[i].to_station_name}</td>
+                <td>${response[i].coach_no}</td>
+                <td>${response[i].coach_type}</td>
                 <td>${response[i].deperture_time}</td>
                 <td>${response[i].fare}</td>
                <td><a href="addtrip.html?tripid=${response[i]._id}">Edit</a> ||

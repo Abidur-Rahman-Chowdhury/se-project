@@ -5,6 +5,8 @@ module.exports = function (zapp, mongoose) {
     to_station_id: String,
     deperture_time: String,
     fare: String,
+    coach_no: String,
+    coach_type: String,
   });
 
   var Trip = mongoose.model("Trip", tripSchema);

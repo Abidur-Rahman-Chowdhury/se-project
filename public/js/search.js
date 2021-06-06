@@ -23,11 +23,16 @@ function viewTrip(searchItems) {
         (today.getMonth() + 1) +
         "-" +
         today.getDate();
+      viewTrip.innerHTML = `<div class="trips">
+                <h2 class="trips-number">Available Trips: </h2>
+            </div>`;
 
       for (let i = 0; i < response.length; i++) {
+        tripList = response;
         response[i].from_station_name = getStation(response[i].from_station_id);
         response[i].to_station_name = getStation(response[i].to_station_id);
         viewTrip.innerHTML += `<br>
+              <div id="viewSeats-${i}">
                 <div class="view-card">
                     <div class="part-1">${response[i].from_station_name}-To-${response[i].to_station_name}</div>
                     <div class="part-2">Departure <br>
@@ -43,11 +48,12 @@ function viewTrip(searchItems) {
                         BDT <br> <br>
                         <span class="Taka">${response[i].fare}</span>
                     </div>
-                    <div class="part-5"><a href="seatplan.html" class="view-btn">
+
+                    <div class="part-5"><button onclick="viewSeat('${i}')" class="view-btn">
                             <ion-icon class="seat-icon" name="reorder-three"></ion-icon>View Seats
-                        </a></div>
+                        </button></div>
                 </div>
-`;
+              </div>`;
       }
     });
 }
